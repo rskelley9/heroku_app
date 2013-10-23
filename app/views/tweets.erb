@@ -1,0 +1,16 @@
+<h3>Your Tweets</h3>
+<div style="margin: 0 auto;">
+<table>
+<tr><th>User's Name</th><th>Tweet Text</th><th>Time</th></tr>
+<tr>
+<% @tweets.each do |tweet| %>
+  <td><%= @user.user_name %></td>
+  <td><%= tweet.text %></td>
+  <td><%= tweet.created_at %></td>
+</tr>
+<% end %>
+</table>
+<br><br>
+
+</div>
+

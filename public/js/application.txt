@@ -1,0 +1,33 @@
+$(document).ready(function() {
+  $('form').on('submit', function(event){
+    event.preventDefault();
+    var handle = $('#handle').val();
+    var radio = $('#see_followers').val();
+
+
+    $('#add_yo_stuff').html("<img src='/gif/ajax-loader.gif'></img>")
+
+    if ($('#see_followers:checked').val() == "false")
+
+    {
+      var follower_url = "/followers/"+handle+"";
+      $.get(follower_url, function(response) {
+        $('#add_yo_stuff').html(response);
+      });
+    }
+    else
+    {
+      var url = "/"+handle+"";
+      $.get(url, function(response){
+        $('#add_yo_stuff').html(response);
+
+      });
+
+    }
+
+  });
+
+});
+
+
+ // $.post(tweet_url, data, function(response))
